@@ -6,14 +6,9 @@
 module:testrunner
 # module:jobs
 
-
-GET     /                                       App.Index
-
-# Ignore favicon requests
-GET     /favicon.ico                            404
-
-# Map static resources from the /app/public folder to the /public path
-GET     /public/*filepath                       Static.Serve("public")
+GET /v1/trains/:train-id    App.GetTrain
+POST    /v1/trains  App.CreateTrain
+DELETE /v1/trains/:train-id App.RemoveTrain
 
 # Catch all, this will route any request into the controller path
 #
